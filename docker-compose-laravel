@@ -1,0 +1,15 @@
+#########Docker laravel############
+1. Creat project or clone project
+2. $ docker run --rm -v $(pwd):/app composer install / $ docker run --rm -v $(pwd):/app composer install --ignore-platform-reqs
+3. $ sudo chown -R $USER:$USER /var/www/{project}
+4. Create docker-compose.yml: $ nano /var/www/{project}/docker-compose.yml
+5. Create Dockerfile: $ nano /var/www/{project}/Dockerfile
+6. Config php: $ mkdir /var/www/{project}/php > $ nano /var/www/{project}/php/local.ini
+7. Config nginx: $ mkdir -p  /var/www/{project}/nginx/conf.d > $ nano /var/www/{project}/nginx/conf.d/app.conf
+8. Config mysql: $ mkdir /var/www/{project}/mysql > $ nano /var/www/{project}/mysql/my.cnf
+9. Create .env, config host = container_name in step4
+10. $ docker-compose up -d
+Another cmd:
+$ docker-compose down
+$ docker-compose build / $ docker-compose build --no-cache
+$ sudo docker-compose exec app php /var/docker/artisan config:clear/cache
